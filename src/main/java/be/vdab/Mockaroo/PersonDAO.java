@@ -82,6 +82,33 @@ public class PersonDAO {
         }
     }
 
+    public void updatePerson(Person person) throws PersonException {
+        String sql = "UPDATE Users SET first_name = ?, last_name = ?, email = ?, gender = ?, ip_address = ? WHERE Id = ?";
+        try (Connection con = getConnection();
+             PreparedStatement stmt = con.prepareStatement(sql)) {
+            stmt.setInt(6,person.getId());
+            stmt.setString(1,person.getFirstName());
+            stmt.setString(2,person.getLastName());
+            stmt.setString(3,person.getEmail());
+            stmt.setString(4,person.getGender());
+            stmt.setString(5,person.getIpAddress());
+            stmt.executeUpdate();
+        } catch (SQLException ex) {
+            throw new PersonException(ex);
+        }
+    }
+
+    public void deletePerson(String name) throws PersonException {
+        String sql = "delete from Users where last_name = ?";
+        try (Connection con = getConnection();
+             PreparedStatement stmt = con.prepareStatement(sql)) {
+            stmt.setString(1, name);
+            stmt.executeUpdate();
+        } catch (SQLException ex) {
+            throw new PersonException(ex);
+        }
+    }
+
 
 
 

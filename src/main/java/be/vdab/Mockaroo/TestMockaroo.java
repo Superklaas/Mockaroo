@@ -1,5 +1,7 @@
 package be.vdab.Mockaroo;
 
+import java.util.ArrayList;
+
 public class TestMockaroo {
     public static void main(String[] args) throws PersonException {
 
@@ -16,6 +18,20 @@ public class TestMockaroo {
         personDAO.createPerson(person2);
         Person person3 = personDAO.getPersonByLastName("Obama");
         System.out.println(person3.toString());*/
+
+        // test updatePerson
+        System.out.println("\nTest updatePerson");
+        Person person4 = personDAO.getPersonById(8);
+        person4.setLastName("Obama");
+        personDAO.updatePerson(person4);
+        System.out.println(person4.toString());
+
+        // test deletePerson
+        System.out.println("\nTest deletePerson");
+        personDAO.deletePerson("Bush");
+        if (personDAO.getPersonByLastName("Bush") == null) {
+            System.out.println("deletePerson method works fine");
+        }
 
     }
 }
