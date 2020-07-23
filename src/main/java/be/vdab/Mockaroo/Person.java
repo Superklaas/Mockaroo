@@ -1,6 +1,6 @@
 package be.vdab.Mockaroo;
 
-public class User {
+public class Person {
 
     int id;
     String firstName;
@@ -8,7 +8,18 @@ public class User {
     String email;
     String gender;
     String ipAddress;
-    int bitcoinId;
+    int bitcoinId = 0;
+
+    public Person() {};
+    public Person(int id, String firstName, String lastName, String email, String gender, String ipAddress, int bitcoinId) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.gender = gender;
+        this.ipAddress = ipAddress;
+        this.bitcoinId = bitcoinId;
+    }
 
     public int getId() {
         return id;
@@ -68,7 +79,7 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" +
+        return "Person{" +
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
