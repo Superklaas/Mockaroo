@@ -4,9 +4,9 @@ public class Bitcoin {
 
     int id;
     String bitcoinAddress;
-    double amount;
+    double balance;
     String creditCardType;
-    float creditCardNumber;
+    long creditCardNumber;
 
     public int getId() {
         return id;
@@ -24,12 +24,21 @@ public class Bitcoin {
         this.bitcoinAddress = bitcoinAddress;
     }
 
-    public double getAmount() {
-        return amount;
+    public double getBalance() {
+        return balance;
     }
 
-    public void setAmount(double amount) {
-        this.amount = amount;
+    public void setBalance(String balance) {
+        // 2 methods to get rid of $ in input string
+        // method 1: replace $ by whitespace and trim (removes whitespace from both ends of a string)
+        balance = balance.replace('$',' ');
+        balance = balance.trim();
+        System.out.println(balance);
+        this.balance = Double.parseDouble(balance);
+        // method 2: split at $, doesn't seem to work unfortunately
+        /*String[] balanceArray = balance.split("$");
+        System.out.println(balanceArray[0]);
+        this.balance = Double.parseDouble(balanceArray[0]);*/
     }
 
     public String getCreditCardType() {
@@ -40,11 +49,11 @@ public class Bitcoin {
         this.creditCardType = creditCardType;
     }
 
-    public float getCreditCardNumber() {
+    public long getCreditCardNumber() {
         return creditCardNumber;
     }
 
-    public void setCreditCardNumber(float creditCardNumber) {
+    public void setCreditCardNumber(long creditCardNumber) {
         this.creditCardNumber = creditCardNumber;
     }
 
@@ -53,7 +62,7 @@ public class Bitcoin {
         return "Bitcoin{" +
                 "id=" + id +
                 ", bitcoinAddress='" + bitcoinAddress + '\'' +
-                ", amount=" + amount +
+                ", amount=" + balance +
                 ", creditCardType='" + creditCardType + '\'' +
                 ", creditCardNumber=" + creditCardNumber +
                 '}';

@@ -1,0 +1,19 @@
+
+7
+pom.xml,4/4/442292b8a7efeabbe4cc176709b833b1792140ec
+e
+5src/main/java/be/vdab/Mockaroo/ConnectionUsersDB.java,8/5/85bc2cb930c57e62cec4f5c2ce910b336ff6971f
+^
+.src/main/java/be/vdab/Mockaroo/BitcoinDAO.java,8/7/875f28271fefac65f27a8a77daaf4ba4ae142527
+c
+3src/main/java/be/vdab/Mockaroo/PersonException.java,d/7/d78790d4938ad21c56fac0f704e22f241f8570c3
+[
++src/main/java/be/vdab/Mockaroo/Bitcoin.java,4/3/43bda793a553e0d4623750b77a500e5b13c8e27c
+9
+	README.md,8/e/8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
+Z
+*src/main/java/be/vdab/Mockaroo/Person.java,8/b/8bed815301e6ccb87f47bb2e07c717949e62d2d8
+]
+-src/main/java/be/vdab/Mockaroo/PersonDAO.java,3/e/3e4a29a66b2ba53f01aac8d8e6e465af84107d57
+`
+0src/main/java/be/vdab/Mockaroo/TestMockaroo.java,b/d/bd734857c1f25d9c9021286165a92ed205e85f82

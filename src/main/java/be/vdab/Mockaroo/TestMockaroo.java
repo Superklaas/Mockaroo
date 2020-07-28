@@ -6,6 +6,7 @@ public class TestMockaroo {
     public static void main(String[] args) throws PersonException {
 
         PersonDAO personDAO = new PersonDAO(ConnectionUsersDB.address, ConnectionUsersDB.user, ConnectionUsersDB.password);
+        BitcoinDAO bitcoinDAO = new BitcoinDAO(ConnectionUsersDB.address, ConnectionUsersDB.user, ConnectionUsersDB.password);
 
         // test getPersonById
         System.out.println("\nTest getPersonById");
@@ -32,6 +33,11 @@ public class TestMockaroo {
         if (personDAO.getPersonByLastName("Bush") == null) {
             System.out.println("deletePerson method works fine");
         }
+
+        // test getBalance
+        System.out.println("\nTest getBalance");
+        double balance = bitcoinDAO.getBalance("1D3HfEk6rd33RJ2wgoeEsyBgQvYf2dhneF");
+        System.out.println("balance: " + balance);
 
     }
 }

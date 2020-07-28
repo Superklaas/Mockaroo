@@ -109,9 +109,6 @@ public class PersonDAO {
         }
     }
 
-
-
-
     private Connection getConnection() throws SQLException {
         return DriverManager.getConnection(url, user, password);
     }
