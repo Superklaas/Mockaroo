@@ -15,7 +15,7 @@ public class BitcoinDAO {
         this.password = password;
     }
 
-    public double getBalance(String bitcoinAddress) throws PersonException {
+    public Bitcoin createBitcoinObject(String bitcoinAddress) throws PersonException {
         String sql = "select * from Bitcoins where bitcoin_address = ?";
         try (Connection con = getConnection();
              PreparedStatement stmt = con.prepareStatement(sql)) {
@@ -28,13 +28,43 @@ public class BitcoinDAO {
                     bitcoin.setBalance(rs.getString("amount"));
                     bitcoin.setCreditCardType(rs.getString("credit_card_type"));
                     bitcoin.setCreditCardNumber(rs.getLong("credit_card_number"));
-                    return bitcoin.getBalance();
+                    return bitcoin;
                 } else {
-                    return 0;
+                    return null;
                 }
             }
         } catch (SQLException ex) {
             throw new PersonException(ex);
+        }
+    }
+
+    public void updateBitcoin(Bitcoin bitcoin) throws PersonException {
+        String sql = "UPDATE Bitcoins SET amount = ? where id = ?";
+        try (Connection con = getConnection();
+             PreparedStatement stmt = con.prepareStatement(sql)) {
+            stmt.setInt(2,bitcoin.getId());
+            stmt.setString(1,"$" + String.valueOf(bitcoin.getBalance()));
+            stmt.executeUpdate();
+        } catch (SQLException ex) {
+            throw new PersonException(ex);
+        }
+    }
+
+    public double getBalance(String bitcoinAddress) throws PersonException {
+        Bitcoin bitcoin = createBitcoinObject(bitcoinAddress);
+        return bitcoin.getBalance();
+    }
+
+    public void pay(double amount, String bitcoinAddressSender, String bitcoinAddressReceiver) throws PersonException {
+        Bitcoin sender = createBitcoinObject(bitcoinAddressSender);
+        Bitcoin receiver = createBitcoinObject(bitcoinAddressReceiver);
+        if (sender.getBalance() >= amount) {
+            sender.setBalance(sender.getBalance()-amount);
+            updateBitcoin(sender);
+            receiver.setBalance(receiver.getBalance()+amount);
+            updateBitcoin(receiver);
+        } else {
+            System.out.println("Not enough money on account sender");
         }
     }
 

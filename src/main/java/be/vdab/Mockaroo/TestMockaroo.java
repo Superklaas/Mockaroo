@@ -39,5 +39,20 @@ public class TestMockaroo {
         double balance = bitcoinDAO.getBalance("1D3HfEk6rd33RJ2wgoeEsyBgQvYf2dhneF");
         System.out.println("balance: " + balance);
 
+        // test pay()
+        System.out.println("\nTest payment method");
+        String sender = "1D3HfEk6rd33RJ2wgoeEsyBgQvYf2dhneF";
+        String receiver = "1592MzWmqF72N4d1zq2A5v6EMHbR3EZ9Ln";
+        System.out.println("BEFORE TRANSACTION");
+        System.out.println("Balance sender: " + bitcoinDAO.getBalance(sender));
+        System.out.println("Balance receiver: " + bitcoinDAO.getBalance(receiver));
+        System.out.println("AFTER TRANSACTION");
+        bitcoinDAO.pay(1000, sender, receiver);
+        System.out.println("Balance sender: " + bitcoinDAO.getBalance(sender));
+        System.out.println("Balance receiver: " + bitcoinDAO.getBalance(receiver));
+        System.out.println("UNDO TRANSACTION");
+        bitcoinDAO.pay(1000, receiver, sender);
+        System.out.println("Balance sender: " + bitcoinDAO.getBalance(sender));
+        System.out.println("Balance receiver: " + bitcoinDAO.getBalance(receiver));
     }
 }
