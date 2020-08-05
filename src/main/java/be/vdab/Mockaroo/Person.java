@@ -2,13 +2,13 @@ package be.vdab.Mockaroo;
 
 public class Person {
 
-    int id;
-    String firstName;
-    String lastName;
-    String email;
-    String gender;
-    String ipAddress;
-    int bitcoinId = 0;
+    private int id;
+    private String firstName;
+    private String lastName;
+    private String email;
+    private String gender;
+    private String ipAddress;
+    private int bitcoinId = 0;
 
     public Person() {};
     public Person(int id, String firstName, String lastName, String email, String gender, String ipAddress, int bitcoinId) {

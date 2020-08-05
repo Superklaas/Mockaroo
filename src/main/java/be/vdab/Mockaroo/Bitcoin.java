@@ -2,11 +2,11 @@ package be.vdab.Mockaroo;
 
 public class Bitcoin {
 
-    int id;
-    String bitcoinAddress;
-    double balance;
-    String creditCardType;
-    long creditCardNumber;
+    private int id;
+    private String bitcoinAddress;
+    private double balance;
+    private String creditCardType;
+    private long creditCardNumber;
 
     public int getId() {
         return id;
