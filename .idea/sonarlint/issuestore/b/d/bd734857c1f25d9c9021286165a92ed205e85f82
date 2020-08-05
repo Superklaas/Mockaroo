@@ -1,5 +1,9 @@
 
-t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(é¾µ§ûÿÿÿÿ
+n
+java:S1192/"QDefine a constant instead of duplicating this literal "Balance sender: " 3 times.(±ÎØ8†Ïš«¹.
 X	java:S125"<This block of commented-out lines of code should be removed.(Ç¹ê­8ËÙÒê·.
+u
+java:S11920"SDefine a constant instead of duplicating this literal "Balance receiver: " 3 times.(ÚÓîşÿÿÿÿÿ8†Ïš«¹.
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(é¾µ§ûÿÿÿÿ
 M
 java:S1128"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ8Òâ½ë·.
