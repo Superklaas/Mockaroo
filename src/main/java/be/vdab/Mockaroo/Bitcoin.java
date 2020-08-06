@@ -33,15 +33,9 @@ public class Bitcoin {
     }
 
     public void setBalance(String balance) {
-        // 2 methods to get rid of $ in input string and to parse string to double
-        // method 1: replace $ by whitespace and trim (removes whitespace from both ends of a string)
         balance = balance.replace('$',' ');
         balance = balance.trim();
         this.balance = Double.parseDouble(balance);
-        // method 2: split at $, doesn't seem to work unfortunately
-        /*String[] balanceArray = balance.split("$");
-        System.out.println(balanceArray[0]);
-        this.balance = Double.parseDouble(balanceArray[0]);*/
     }
 
     public String getCreditCardType() {
